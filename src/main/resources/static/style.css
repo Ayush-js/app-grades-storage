@@ -1,0 +1,250 @@
+/* =================================
+   Keyframe Animations (The Effects!)
+==================================== */
+
+/* Animated gradient background */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Pulsing glow effect for focused inputs */
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #2196f3, 0 0 10px #2196f3;
+  }
+  to {
+    box-shadow: 0 0 10px #00e5ff, 0 0 20px #00e5ff;
+  }
+}
+
+/* Fade-in animation for the main container */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =================================
+   Global & Base Styles
+==================================== */
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #f0f0f0; /* Light text for the dark background */
+  
+  /* Vibrant animated gradient */
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1E90FF);
+  background-size: 400% 400%;
+  animation: gradientBG 18s ease infinite;
+  min-height: 100vh;
+}
+
+h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  /* Cool glowing text effect */
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #00e5ff, 0 0 20px #00e5ff;
+  text-align: center;
+}
+
+/* =================================
+   Navigation Bar
+==================================== */
+
+.topnav {
+  /* Glassy, semi-transparent navbar */
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 18px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Bright neon-style hover/active color */
+.topnav a:hover {
+  color: #00e5ff;
+  text-shadow: 0 0 10px #00e5ff;
+}
+
+.topnav a.active {
+  color: #00e5ff;
+  border-bottom: 2px solid #00e5ff;
+}
+
+/* =================================
+   Main Content "Glass" Container
+==================================== */
+
+.container {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 2.5rem;
+  
+  /* "Glassmorphism" effect */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  
+  /* Apply the fade-in animation */
+  animation: fadeIn 0.7s ease-out forwards;
+}
+
+/* =================================
+   Form Styles
+==================================== */
+
+/* Futuristic input fields */
+input[type=text], select, textarea {
+  width: 100%; 
+  padding: 12px; 
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+  font-size: 16px;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+/* Glow effect on focus! */
+input[type=text]:focus, select:focus, textarea:focus {
+  background: rgba(0, 0, 0, 0.5);
+  border-color: #00e5ff;
+  outline: none;
+  animation: glow 1.2s infinite alternate;
+}
+
+/* Vibrant submit button */
+input[type=submit] {
+  background: linear-gradient(90deg, #ff416c, #ff4b2b); /* Pink/Red gradient */
+  width: 100%;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Pop and glow on hover */
+input[type=submit]:hover {
+  transform: scale(1.02) translateY(-2px);
+  box-shadow: 0 5px 20px rgba(255, 65, 108, 0.4);
+}
+
+/* Vibrant error message */
+.error-message {
+  color: #ff8a80; /* Bright red */
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 138, 128, 0.5);
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-weight: 500;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px rgba(255, 138, 128, 0.5);
+}
+
+/* =================================
+   Table Styles
+==================================== */
+
+#table {
+  font-family: inherit;
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 12px; /* Rounded corners */
+  overflow: hidden; /* Important for border-radius */
+  color: #f0f0f0;
+}
+
+#table td, #table th {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#table tr {
+  /* Row-level transition for hover */
+  transition: all 0.2s ease-in-out;
+}
+
+/* No border on the last row */
+#table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Pop-up effect on table row hover! */
+#table tr:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Glassy header */
+#table th {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+/* =================================
+   Button Styles (for Update)
+==================================== */
+
+.btn {
+   display: inline-block;
+   padding: 10px 18px;
+   text-align: center;
+   font-size: 14px;
+   font-weight: 600;
+   text-decoration: none;
+   color: #fff;
+   border-radius: 8px;
+   border: none;
+   cursor: pointer;
+   transition: all 0.3s ease, transform 0.1s ease;
+}
+
+/* Sliding gradient button */
+.btn-update {
+  background: linear-gradient(90deg, #1fa2ff, #12d8fa, #a6ffcb);
+  background-size: 250% auto;
+}
+
+/* On hover, slide the gradient and pop the button */
+.btn-update:hover {
+  background-position: right center; /* Slides the gradient */
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(29, 216, 250, 0.4);
+}
