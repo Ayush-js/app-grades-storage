@@ -5,7 +5,7 @@ import java.util.List;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import com.ltp.gradesubmission.Score;
+import com.ltp.gradesubmission.validation.Score;
 
 public class ScoreValidator implements ConstraintValidator<Score, String> {
 

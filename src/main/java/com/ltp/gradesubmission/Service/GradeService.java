@@ -2,13 +2,19 @@ package com.ltp.gradesubmission.Service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.stereotype.Component; 
+import org.springframework.stereotype.Service;
+
 import com.ltp.gradesubmission.Constants;
-import com.ltp.gradesubmission.Grade;
 import com.ltp.gradesubmission.Repository.GradeRepository;
+import com.ltp.gradesubmission.pojo.Grade;
 
+@Service
 public class GradeService {
-
-   GradeRepository gradeRepository = new GradeRepository();
+   
+    @Autowired
+    GradeRepository gradeRepository;
     
     
     public Grade getGrade(int index) {
