@@ -1,31 +1,40 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Submit and manage student grades">
     <title>Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link th:href="@{/style.css}" rel="stylesheet">
-  </head>    
+  </head>
   <body>
     <div class="topnav">
       <a class="active" th:href="@{/}">Form</a>
       <a th:href="@{/grades}">Grades</a>
-    </div>   
+    </div>
 
     <div class="container">
-      <h2> Grade Portal </h2>
-      <form method="post" th:object="${grade}" th:action="@{/handleSubmit}"> 
-        
+      <h2>Grade Portal</h2>
+      <form method="post" th:object="${grade}" th:action="@{/handleSubmit}">
+
+        <label for="name">Name</label>
         <p class="error-message" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</p>
-        <input type="text" placeholder="Name" th:field="*{name}">
-        
+        <input id="name" type="text" placeholder="Name" th:field="*{name}">
+
+        <label for="score">Score</label>
         <p class="error-message" th:if="${#fields.hasErrors('score')}" th:errors="*{score}">Score Error</p>
-        <input type="text" placeholder="Score" th:field="*{score}">  
-        
+        <input id="score" type="text" placeholder="Score" th:field="*{score}">
+
+        <label for="subject">Subject</label>
         <p class="error-message" th:if="${#fields.hasErrors('subject')}" th:errors="*{subject}">Subject Error</p>
-        <input type="text" placeholder="Subject" th:field="*{subject}">
-        
+        <input id="subject" type="text" placeholder="Subject" th:field="*{subject}">
+
         <input type="hidden" th:field="*{id}">
-        <br> <input type="submit" value="Submit">
+        <input type="submit" value="Submit grade">
       </form>
     </div>
-</body>
+  </body>
 </html>
