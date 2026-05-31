@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.ltp.gradesubmission.Constants;
-import com.ltp.gradesubmission.Repository.GradeRepository;
+// import com.ltp.gradesubmission.Constants;
+// import com.ltp.gradesubmission.Repository.GradeRepository; // unused import removed
 import com.ltp.gradesubmission.Service.GradeService;
 import com.ltp.gradesubmission.pojo.Grade;
 

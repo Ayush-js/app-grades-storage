@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ltp.gradesubmission.pojo.Grade;
 
-@Repository
+@Repository //@component ke jagah hum @Repository use karte hai kyunki woh bhi bean hi banta hai.
 public class GradeRepository {
 
      private List<Grade> studentGrades = new ArrayList<>();
@@ -28,3 +28,6 @@ public class GradeRepository {
      }
 
 }
+
+
+//@Controller is also derived from @Component
