@@ -42,13 +42,11 @@ public class GradeServiceTest {
 
     @Test 
     public void gradeIndexTest(){
-         when(gradeRepository.getGrades()).thenReturn(Arrays.asList(
-        new Grade("Harry", "Potion", "B+"),
-        new Grade("Hermione", "Arithmancy", "A+")
-       ));
-
-       List<Grade> result = gradeService.getGrades();
-       int valid = gradeService.getGradeIndex(result.get(0).getId());
+      Grade grade = new Grade("Harry", "Potion", "B+");
+         when(gradeRepository.getGrades()).thenReturn(Arrays.asList(grade));
+         when(gradeRepository.getGrade(0)).thenReturn(grade);
+       
+       int valid = gradeService.getGradeIndex(grade.getId());
        int notFound = gradeService.getGradeIndex("123");
 
        assertEquals(0, valid);
